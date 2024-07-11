@@ -1,14 +1,14 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    if ((typeof newName) !== 'string') {
+    if ((typeof name) !== 'string') {
       throw new TypeError('Name must be a string');
     }
 
-    if ((typeof newLength) !== 'number') {
+    if ((typeof length) !== 'number') {
       throw new TypeError('Length must be a number');
     }
 
-    if (!Array.isArray(newStudents) || !newStudents.every((student) => typeof student === 'string')) {
+    if (!Array.isArray(students) || !students.every((student) => typeof student === 'string')) {
       throw new TypeError('Students must be an array of strings');
     }
 
@@ -18,7 +18,7 @@ export default class HolbertonCourse {
   }
 
   get name() {
-    return this._name
+    return this._name;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -27,8 +27,8 @@ export default class HolbertonCourse {
       throw new TypeError('Name must be a string');
     }
     this._name = newName;
-    }
-  
+  }
+
   get length() {
     return this._length;
   }
