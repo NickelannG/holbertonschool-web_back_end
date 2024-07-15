@@ -4,13 +4,13 @@ import uploadPhoto from './5-photo-reject';
 export default function handleProfileSignup(firstName, lastName, fileName) {
   const userPromise = signUpUser(firstName, lastName)
     .then((value) => ({
-      status: 200,
+      status: 'fulfilled',
       value,
     }));
 
   const photoPromise = uploadPhoto(fileName)
     .catch((error) => ({
-      status: 500,
+      status: 'rejected',
       value: error,
     }));
   return Promise.all([userPromise, photoPromise]);
