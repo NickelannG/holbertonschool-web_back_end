@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """This module contains an asynchronous coroutine wait_random"""
 import random
 import asyncio
