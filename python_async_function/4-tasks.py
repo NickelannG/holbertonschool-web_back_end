@@ -12,6 +12,7 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     delays = []
     # spawn wait_random n times
     for i in range(n):
+        # coroutines run as they are created
         delay = asyncio.create_task(wait_random(max_delay))
         delays.append(delay)
 
