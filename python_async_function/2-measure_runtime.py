@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+"""This module contains the 2-measure_runtime function"""
 import asyncio
 import time
-"""This module contains the 2-measure_runtime function"""
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
