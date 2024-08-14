@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
+"""This module contains the wait_n function"""
 import asyncio
 from typing import List
-
-"""This module contains the wait_n function"""
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
