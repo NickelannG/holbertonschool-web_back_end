@@ -4,7 +4,7 @@ import random
 import asyncio
 
 
-async def async_generator():
+async def async_generator() -> Generator[float, None]:
     """
     This function is a coroutine that loops 10 times,
     each time asynchronously waits 1 second, then yields a random number 0-10.
