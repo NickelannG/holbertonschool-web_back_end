@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Provides stats about Nginx logs sotred in MongoDB"""
+"""Provides stats about Nginx logs sorted in MongoDB"""
 from pymongo import MongoClient
 
 if __name__ == "__main__":
@@ -18,4 +18,4 @@ if __name__ == "__main__":
         print(" method {}: {}".format(i, x))
 
     status = db.nginx.count_documents({"method": "GET", "path": "/status"})
-    print("{} satus check".format(status))
+    print("{} status check".format(status))
