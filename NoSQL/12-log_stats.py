@@ -15,7 +15,7 @@ if __name__ == "__main__":
     list = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for i in list:
         db.nginx.count_documents({"i": i})
-        print(" method {}: {}".format(i, x))
+        print("\tmethod {}: {}".format(i, x))
 
     status = db.nginx.count_documents({"method": "GET", "path": "/status"})
     print("{} status check".format(status))
