@@ -6,16 +6,29 @@ if __name__ == "__main__":
     client = MongoClient("mongodb://localhost:27017/")
     db = client.logs
     collection = db.nginx
+    
+    methods = {
+            "GET": 0,
+            "POST": 0,
+            "PUT": 0,
+            "PATCH": 0,
+            "DELETE": 0
+        }
 
-    x = collection.count_documents({})
-    print("{} logs".format(x))
+    all_docs = collection.count_documents({})
+    methods["GET"] = collection.count_documents({"method": "GET"})
+    methods["POST"] = collection.count_documents({"method": "POST"})
+    methods["PUT"] = collection.count_documents({"method": "PUT"})
+    methods["PATCH"] = collection.count_documents({"method": "PATCH"})
+    methods["DELETE"] = collection.count_documents({"method": "DELETE"})
 
-
+    print("{} logs".format(all_docs))
     print("Methods:")
-    list = ["GET", "POST", "PUT", "PATCH", "DELETE"]
-    for i in list:
-        count = collection.count_documents({"i": i})
-        print("\tmethod {}: {}".format(i, count))
+    for k, v in methods.items():
+        print("\tmethod {}: {}".format(k, v))
 
-    status = db.nginx.count_documents({"method": "GET", "path": "/status"})
+    status = collection.count_documents({"method": "GET", "path": "/status"})
     print("{} status check".format(status))
+
+
+ 
