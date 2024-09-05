@@ -41,7 +41,6 @@ async function requestListener(req, res) {
         res.write(`Number of students in SWE: ${studentsSWE.length}. List: ${studentsSWE.join(', ')}\n`);
         res.end(); // End the response
       } catch (err) {
-        res.writeHead(500);
         res.end('Cannot load the database');
       }
       break;
