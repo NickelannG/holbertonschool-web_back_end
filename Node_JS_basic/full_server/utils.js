@@ -1,8 +1,6 @@
 const fs = require('fs').promises;
 
 module.exports = async function readDatabase(path) {
-  const studentData = {};
-
   try {
     const data = await fs.readFile(path, 'utf-8');
     const rows = data.split('\n').slice(1);
@@ -23,13 +21,11 @@ module.exports = async function readDatabase(path) {
       }
     }
 
-    studentData.CS = studentsCS;
-    studentData.SWE = studentsSWE;
-
-    return Promise.resolve(studentData);
-  } catch (error) {
-    return Promise.reject(
-      Error(),
-    );
+    return {
+      CS: studentsCS,
+      SWE: studentsSWE,
+    };
+  } catch (err) {
+    throw new Error('Cannot load the database');
   }
 };

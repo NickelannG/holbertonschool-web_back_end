@@ -7,7 +7,7 @@ const PORT = 1245;
 
 app.use('/', indexRouter);
 app.use('/students', indexRouter);
-app.use('/students:major', indexRouter);
+app.use('/students/:major', indexRouter);
 
 app.listen(PORT, () => {
 });

@@ -1,16 +1,18 @@
-// Link routes part 8.4
-const express = require('express');
-const path = require('path');
+// 8.4 Link the routes
 
-//router object
+import express from 'express';
+import AppController from '../controllers/AppController';
+import StudentsController from '../controllers/StudentsController';
+
 const router = express.Router();
 
-router.get('/', function (req, res) {
-res.sendFile(path.join(__dirname, '..', '/controllers/AppController.js'));
-});
+// route '/'
+router.get('/', AppController.getHomepage);
 
-router.get('/students', '/students/:major', function (req, res) {
-res.sendFile(path.join(__dirname, '..', '/controllers/StudentsController.js'));
-});
+// route '/students'
+router.get('/students', StudentsController.getAllStudents);
+
+// route '/students/:major' (corrected)
+router.get('/students/:major', StudentsController.getAllStudentsbyMajor);
 
 module.exports = router;
